@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script>
+	//用jQuery中的ajax请求数据
+	
+	var url = 'http://s.budejie.com/topic/list/zuixin/1/budejie-android-6.6.6/0-20.json';
+	
+	//用enCodeURIComponent();方法对url进行编码；
+	url = encodeURIComponent(url);
+	
+	$.ajax({
+		//如果类型为GET类型可以省略不写，POST类型必须写
+		type:'GET',
+		
+		//通过dataType选项还可以指定其他不同数据处理方式。除了单纯的XML，还可以指定 html、json、jsonp、script或者text。
+		
+		url:'http://localhost:8888?myUrl=' + url,//这是一个完整的
+		
+		//数据请求成功的时候会通过回调函数返回data数据；
+		success: function(data){
+			console.log(data);
+		},
+		
+		//数据请求失败时会返回error数据
+		error:function(error){
+			console.log(error);
+		}
+	});
+
+</script>
